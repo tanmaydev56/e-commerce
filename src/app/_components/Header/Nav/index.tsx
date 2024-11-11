@@ -22,7 +22,7 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
       })}
       
 
-      <CartLink />
+      {/* <CartLink /> */}
       {user && <Link href="/account">Account</Link>}
       {!user && (
         <Button
