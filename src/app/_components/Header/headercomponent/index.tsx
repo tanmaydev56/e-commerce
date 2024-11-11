@@ -8,6 +8,7 @@ import { HeaderNav } from '../Nav'
 import MobileNav from '../mobileNav'
 import { noHeaderFooterUrls } from '../../../constants'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 const HeaderComponent = ({ header }: { header: Header }) => {
   const pathname = usePathname()
@@ -19,7 +20,7 @@ const HeaderComponent = ({ header }: { header: Header }) => {
     >
       <Gutter className={classes.wrap}>
         <Link href={'/'}>
-          <img src="/logo-black.svg" alt="logo" width={170} height={40} />
+          <Image src="/logo-black.svg" alt="logo" width={170} height={40} />
         </Link>
         <HeaderNav header={header} />
         <MobileNav header={header} />

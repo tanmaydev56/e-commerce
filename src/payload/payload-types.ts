@@ -495,7 +495,7 @@ export interface Header {
   updatedAt?: string | null;
   createdAt?: string | null;
 }
-export interface Footer {
+export  interface Footer {
   id: string;
   copyright: string;
   navItems?:
