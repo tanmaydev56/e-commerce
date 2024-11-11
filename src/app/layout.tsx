@@ -7,17 +7,14 @@ import { Header } from './_components/Header'
 import { Providers } from './_providers'
 import { InitTheme } from './_providers/Theme/InitTheme'
 import { mergeOpenGraph } from './_utilities/mergeOpenGraph'
-import {Jost}  from 'next/font/google'
+import { Jost } from 'next/font/google'
 
 import './_css/app.scss'
 const jost = Jost({
-    subsets: ['latin'],
-    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    variable: '--font-jost',
-  })
- 
-
-    
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-jost',
+})
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -32,8 +29,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <AdminBar />
           {/* @ts-expect-error */}
           <Header />
-          <main className='main'> {children}</main>
-        
+          <main className="main"> {children}</main>
+
           {/* @ts-expect-error */}
           <Footer />
         </Providers>

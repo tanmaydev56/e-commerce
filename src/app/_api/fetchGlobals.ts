@@ -53,7 +53,7 @@ export async function fetchHeader(): Promise<Header> {
 }
 
 export async function fetchFooter(): Promise<Footer> {
-  if (!GRAPHQL_API_URL) throw new Error('NEXT_PUBLIC_SERVER_URL not found');
+  if (!GRAPHQL_API_URL) throw new Error('NEXT_PUBLIC_SERVER_URL not found')
 
   const footer = await fetch(`${GRAPHQL_API_URL}/api/graphql`, {
     method: 'POST',
@@ -65,27 +65,24 @@ export async function fetchFooter(): Promise<Footer> {
     }),
   })
     .then(res => {
-      if (!res.ok) throw new Error('Error fetching doc');
-      return res.json();
+      if (!res.ok) throw new Error('Error fetching doc')
+      return res.json()
     })
     .then(res => {
-      if (res?.errors) throw new Error(res?.errors[0]?.message || 'Error fetching footer');
-      return res.data?.Footer;
-    });
+      if (res?.errors) throw new Error(res?.errors[0]?.message || 'Error fetching footer')
+      return res.data?.Footer
+    })
 
   if (!footer) {
     // Provide a fallback footer object in case the query returns null
     return {
-      copyright: "© Your Company Name",
+      copyright: '© Your Company Name',
       // Add any other fields that might be required with default values
-    };
+    }
   }
 
-  return footer;
+  return footer
 }
-
-
-
 
 export const fetchGlobals = async (): Promise<{
   settings: Settings

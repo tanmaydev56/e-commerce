@@ -14,7 +14,7 @@ export const Providers: React.FC<{
     <ThemeProvider>
       <AuthProvider>
         <FilterProvider>
-        <CartProvider>{children}</CartProvider>
+          <CartProvider>{children}</CartProvider>
         </FilterProvider>
       </AuthProvider>
     </ThemeProvider>

@@ -5,7 +5,7 @@ export const PRODUCT_CATEGORIES = `categories {
     id
     label
   }
-}`;
+}`
 
 export const CATEGORIES = `
   query Categories {
@@ -22,4 +22,4 @@ export const CATEGORIES = `
       }
     }
   }
-`;
+`
