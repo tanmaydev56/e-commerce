@@ -69,16 +69,7 @@ export const home: Partial<Page> = {
           url: '',
         },
       },
-      {
-        link: {
-          type: 'custom',
-          appearance: 'secondary',
-          reference: null,
-          label: 'View on GitHub',
-          url: 'https://github.com/payloadcms/payload/tree/main/templates/ecommerce',
-          newTab: true,
-        },
-      },
+      
     ],
     media: '{{PRODUCT1_IMAGE}}',
   },
