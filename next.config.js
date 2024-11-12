@@ -18,9 +18,6 @@ const nextConfig = {
     const headers = []
 
     // Prevent search engines from indexing the site if it is not live
-    // This is useful for staging environments before they are ready to go live
-    // To allow robots to crawl the site, use the `NEXT_PUBLIC_IS_LIVE` env variable
-    // You may want to also use this variable to conditionally render any tracking scripts
     if (!process.env.NEXT_PUBLIC_IS_LIVE) {
       headers.push({
         headers: [
@@ -33,15 +30,21 @@ const nextConfig = {
       })
     }
 
-    // Set the `Content-Security-Policy` header as a security measure to prevent XSS attacks
-    // It works by explicitly whitelisting trusted sources of content for your website
-    // This will block all inline scripts and styles except for those that are allowed
+    // Add Content-Security-Policy header with necessary adjustments for external resources
     headers.push({
       source: '/(.*)',
       headers: [
         {
           key: 'Content-Security-Policy',
-          value: ContentSecurityPolicy,
+          value: `
+            default-src 'self';
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://vercel.live;
+            connect-src 'self' https://checkout.stripe.com https://api.stripe.com https://maps.googleapis.com wss://ws-us3.pusher.com;
+            font-src 'self' https://fonts.googleapis.com https://vercel.live;
+            img-src 'self' data: https://www.gravatar.com https://your-image-domain.com;
+            script-src 'self' 'unsafe-inline' https://www.gstatic.com;
+            object-src 'none';
+          `,
         },
       ],
     })
