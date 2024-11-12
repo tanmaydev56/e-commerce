@@ -30,7 +30,7 @@ const nextConfig = {
       })
     }
 
-    // Add Content-Security-Policy header with necessary adjustments for external resources
+    // Set the CSP header properly, making sure no extra line breaks exist
     headers.push({
       source: '/(.*)',
       headers: [
@@ -44,7 +44,7 @@ const nextConfig = {
             img-src 'self' data: https://www.gravatar.com https://your-image-domain.com;
             script-src 'self' 'unsafe-inline' https://www.gstatic.com;
             object-src 'none';
-          `,
+          `.replace(/\n/g, ' ').trim(), // Remove any unwanted newline characters
         },
       ],
     })
