@@ -7,7 +7,7 @@ const policies = {
     'https://checkout.stripe.com',
     'https://js.stripe.com',
     'https://maps.googleapis.com',
-    'https://vercel.live', 
+    'https://vercel.live',
   ],
   'child-src': ["'self'"],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
@@ -18,6 +18,7 @@ const policies = {
     'https://checkout.stripe.com',
     'https://js.stripe.com',
     'https://hooks.stripe.com',
+    'https://vercel.live',
   ],
   'connect-src': [
     "'self'",
