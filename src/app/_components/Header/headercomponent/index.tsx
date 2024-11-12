@@ -5,7 +5,7 @@ import { Gutter } from '../../Gutter'
 import Link from 'next/link'
 import classes from './index.module.scss'
 import { HeaderNav } from '../Nav'
-import MobileNav from '../mobileNav'
+// import MobileNav from '../mobileNav'
 import { noHeaderFooterUrls } from '../../../constants'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
@@ -23,7 +23,7 @@ const HeaderComponent = ({ header }: { header: Header }) => {
           <Image src="/logo-black.svg" alt="logo" width={170} height={40} />
         </Link>
         <HeaderNav header={header} />
-        <MobileNav header={header} />
+        {/* <MobileNav header={header} /> */}
       </Gutter>
     </nav>
   )
