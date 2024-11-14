@@ -5,16 +5,16 @@ const policies = {
   'script-src': [
     "'self'",
     "'unsafe-inline'",
-    isDevelopment ? "'unsafe-eval'" : "", // Allow 'unsafe-eval' only in development
+    isDevelopment ? "'unsafe-eval'" : "", 
     'https://checkout.stripe.com',
     'https://js.stripe.com',
     'https://maps.googleapis.com',
     'https://vercel.live',
-  ],
+  ].filter(Boolean),
   'child-src': ["'self'"],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
   'img-src': ["'self'", 'https://*.stripe.com', 'https://raw.githubusercontent.com'],
-  'font-src': ["'self'"],
+  'font-src': ["'self'", 'https://fonts.gstatic.com'], 
   'frame-src': [
     "'self'",
     'https://checkout.stripe.com',
@@ -31,6 +31,17 @@ const policies = {
 };
 
 module.exports = {
+  images: {
+    domains: ['localhost'], // Ensure 'localhost' is added here
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/media/**', // Adjust this if necessary
+      },
+    ],
+  },
   async headers() {
     return [
       {
