@@ -6,3 +6,16 @@ node_modules
 .env
 .next
 .vercel
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+.settings/
+.project
+.classpath
+*.iml
+.idea/
